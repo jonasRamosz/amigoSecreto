@@ -38,7 +38,6 @@ model EventPeople {
   name     String
   cpf      String
   matched  String @default("")
-
   event  Event?      @relation(fields: [id_event], references: [id])
   groupe EventGroup? @relation(fields: [id_group], references: [id])
 }
