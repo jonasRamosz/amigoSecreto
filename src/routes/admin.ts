@@ -16,4 +16,6 @@ router.post("/events", auth.validate, events.addEvent);
 
 router.put("/events/:id", auth.validate, events.updateEvent);
 
+router.delete("/events/:id", auth.validate, events.deleteEvent);
+
 export default router;
