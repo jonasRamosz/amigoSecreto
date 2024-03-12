@@ -17,3 +17,17 @@ export const login: RequestHandler = (req, res) => {
 
   res.json({ token: auth.createToken() });
 };
+
+export const validate: RequestHandler = (req, res, next) => {
+  if (!req.headers.authorization) {
+    console.log("aqui");
+    return res.status(403).json({ error: "acesso negado" });
+  }
+
+  const token = req.headers.authorization.split(" ")[1];
+  if (!auth.validateToken(token)) {
+    return res.status(403).json({ error: "acesso negado" });
+  }
+
+  next();
+};
