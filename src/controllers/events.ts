@@ -14,6 +14,7 @@ export const getEvent: RequestHandler = async (req, res) => {
   const { id } = req.params;
   const eventItem = await events.getOne(parseInt(id));
   if (eventItem) return res.json({ event: eventItem });
+  if (eventItem === null) return res.json({ error: "evento nao existe" });
 
   res.json({ error: "Ocorreu um erro" });
 };
