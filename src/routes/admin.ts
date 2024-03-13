@@ -2,6 +2,7 @@ import { Router } from "express";
 import * as auth from "../controllers/auth";
 import * as events from "../controllers/events";
 import * as groups from "../controllers/groups";
+import * as people from "../controllers/people";
 const router = Router();
 
 router.get("/ping", auth.validate, (req, res) => {
@@ -26,6 +27,18 @@ router.delete(
   "/events/:id_event/groups/:id",
   auth.validate,
   groups.deleteGroup
+);
+
+//Rotas de pessoas
+router.get(
+  "/events/:id_event/groups/:id_group/people",
+  auth.validate,
+  people.getAll
+);
+router.get(
+  "/events/:id_event/groups/:id_group/people/:id_people",
+  auth.validate,
+  people.getPeople
 );
 
 export default router;
