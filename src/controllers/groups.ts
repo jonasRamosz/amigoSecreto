@@ -15,8 +15,6 @@ export const getAll: RequestHandler = async (req, res) => {
 
 export const getGroup: RequestHandler = async (req, res) => {
   const { id_event, id } = req.params;
-  console.log("id: ", id);
-  console.log("id_event :", id_event);
 
   const groupItem = await groups.getOne({
     id_event: parseInt(id_event),
@@ -30,7 +28,6 @@ export const getGroup: RequestHandler = async (req, res) => {
 };
 
 export const addGroup: RequestHandler = async (req, res) => {
-  console.log("body: ");
   const { id_event } = req.params;
 
   const addGroupSchema = z.object({ name: z.string() });
