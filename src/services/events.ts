@@ -43,3 +43,7 @@ export const deleteEvent = async (id: number) => {
     return false;
   }
 };
+
+export const doMatches = async (id: number) => {
+  return true;
+};
